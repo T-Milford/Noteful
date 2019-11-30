@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import STORE from './STORE';
 import { Link } from 'react-router-dom'
 
 
-class DisplayFolders extends Component {
+class DisplayFolders extends React.Component {
     render() {
         const FoldersList = STORE.folders.map(folder => 
             <li className='each_folder' 
