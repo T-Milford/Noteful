@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import {Route, Link} from 'react-router-dom';
 import './App.css';
+import DisplayFolders from './DisplayFolders'
+import DisplayNotes from './DisplayNotes'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  
+  render() {
+      return (
+        <main className="App">
+          <header>
+            <Link to='/'>Noteful</Link>
+          </header>
+          
+          <div className='sidebar'>
+            <Route 
+              exact path='/'
+              component={DisplayFolders} 
+            />
+            <Route
+              path='/folders/:folderId'
+              // component={DisplayOneFolder}
+            />
+          </div>
+                          
+          <section className='home'>
+              <Route
+                exact path='/'
+                component={DisplayNotes}
+              />
+              <Route
+                exact path='/notes/:noteId'
+                // component={Note}
+              />
+          </section>
+
+        </main>
+    );
+  }
 }
 
 export default App;
