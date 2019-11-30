@@ -3,6 +3,7 @@ import {Route, Link} from 'react-router-dom';
 import './App.css';
 import DisplayFolders from './DisplayFolders'
 import DisplayNotes from './DisplayNotes'
+import Note from './Note';
 
 class App extends Component {
   
@@ -18,9 +19,11 @@ class App extends Component {
               exact path='/'
               component={DisplayFolders} 
             />
+            {/* If I just want to display one folder for this route, would I just pass in another prop (oneFolder = true?) */}
             <Route
               path='/folders/:folderId'
-              // component={DisplayOneFolder}
+              component={DisplayFolders}
+              oneFolder='true'
             />
           </div>
                           
@@ -31,7 +34,7 @@ class App extends Component {
               />
               <Route
                 exact path='/notes/:noteId'
-                // component={Note}
+                component={Note}
               />
           </section>
 

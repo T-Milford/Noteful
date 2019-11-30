@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import STORE from './STORE';
 import { Link } from 'react-router-dom'
 
